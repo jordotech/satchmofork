@@ -28,7 +28,8 @@ import keyedcache
 import logging
 import operator
 import signals
-
+from model_utils.fields import StatusField
+from model_utils import Choices
 log = logging.getLogger('satchmo_store.shop.models')
 
 class NullConfig(object):
@@ -1146,6 +1147,8 @@ class OrderItem(models.Model):
     """
     A line item on an order.
     """
+    STATUS = Choices('none', 'cutting', 'color')
+    status = StatusField()
     order = models.ForeignKey(Order, verbose_name=_("Order"))
     product = models.ForeignKey(Product, verbose_name=_("Product"), on_delete=models.PROTECT)
     quantity = models.DecimalField(_("Quantity"),  max_digits=18,  decimal_places=6)
