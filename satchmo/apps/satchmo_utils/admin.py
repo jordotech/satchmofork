@@ -44,6 +44,7 @@ class ForeignKeySearchInput(forms.HiddenInput):
         js = (
             # The js/jquery.js script is referenced in admin/base_site.html template.
             # Requesting it here again would reset all the plugins loaded afterwards.
+            'js/jquery-1.4.2.js',
             'js/jquery.bgiframe.js',
             'js/jquery.ajaxQueue.js',
             'js/jquery.autocomplete.js'
