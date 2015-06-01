@@ -681,9 +681,7 @@ class OptionGroup(models.Model):
     site = models.ForeignKey(Site, verbose_name=_('Site'))
     name = models.CharField(_("Name of Option Group"), max_length=50,
         help_text=_("This will be the text displayed on the product page."))
-    description = models.CharField(_("Detailed Description"), max_length=100,
-        blank=True,
-        help_text=_("Further description of this group (i.e. shirt size vs shoe size)."))
+    description = models.TextField(_("Detailed Description"),blank=True,null=True, help_text=_("This will show as a tooltip for the customer to explain the option group."))
     sort_order = models.IntegerField(_("Sort Order"),
         help_text=_("The display order for this group."), default=0)
 
