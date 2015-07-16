@@ -1279,9 +1279,9 @@ class OrderStatus(models.Model):
         get_latest_by = 'time_stamp'
 
 class OrderPaymentBase(models.Model):
-    test = iterchoices_db(payment.config.labelled_gateway_choices)
-    for x in test:
-        pass #todo: remove this, temp fix
+    #test = iterchoices_db(payment.config.labelled_gateway_choices)
+    #for x in test:
+        #pass #todo: remove this, temp fix
     payment = models.CharField(_("Payment Method"), choices=iterchoices_db(payment.config.labelled_gateway_choices),
         max_length=25, blank=True)
     amount = CurrencyField(_("amount"),
