@@ -584,6 +584,16 @@ ORDER_CHOICES = (
 
 ORDER_STATUS = (
     ('Temp', _('Temp')),
+    ('Printed', _('Printed')),
+    ('Prepped', _('Prepped')),
+    ('Molded', _('Molded')),
+    ('Marking', _('Marking')),
+    ('Riveting', _('Riveting')),
+    ('Bending/Polishing', _('Bending/Polishing')),
+    ('Fitting', _('Fitting')),
+    ('Belt Looping', _('Belt Looping')),
+    ('Reviewing', _('Reviewing')),
+    ('Shipping', _('Shipping')),
     ('New', _('New')),
     ('Blocked', _('Blocked')),
     ('In Process', _('In Process')),
