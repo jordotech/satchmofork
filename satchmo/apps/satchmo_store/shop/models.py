@@ -1176,7 +1176,7 @@ class OrderItem(models.Model):
     completed = models.BooleanField(_("Completed"), default=False)
     discount = CurrencyField(_("Line item discount"),
         max_digits=18, decimal_places=10, blank=True, null=True)
-
+    notes = models.TextField(_("Notes"), blank=True, null=True, max_length=255)
     def __unicode__(self):
         return self.product.translated_name()
 
