@@ -854,6 +854,7 @@ class Product(models.Model):
     related_items = models.ManyToManyField('self', blank=True, null=True, verbose_name=_('Related Items'), related_name='related_products')
     also_purchased = models.ManyToManyField('self', blank=True, null=True, verbose_name=_('Previously Purchased'), related_name='also_products')
     total_sold = models.DecimalField(_("Total sold"),  max_digits=18, decimal_places=6, default='0')
+    rush = models.BooleanField(_("Rush"), default=False)
     taxable = models.BooleanField(_("Taxable"), default=lambda: config_value('TAX', 'PRODUCTS_TAXABLE_BY_DEFAULT'))
     taxClass = models.ForeignKey('TaxClass', verbose_name=_('Tax Class'), blank=True, null=True, help_text=_("If it is taxable, what kind of tax?"))
     shipclass = models.CharField(_('Shipping'), choices=SHIP_CLASS_CHOICES, default="DEFAULT", max_length=10,
