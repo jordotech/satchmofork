@@ -245,11 +245,11 @@ class ProductOptions(admin.ModelAdmin):
 
     list_display += ('slug', 'name', 'formatted_price', 'formatted_inventory', 'active','featured', 'get_subtypes')
     list_display_links = ('slug', 'name')
-    list_filter = ('category', 'date_added','active','featured')
+    list_filter = ('category', 'date_added','active','featured','rush')
     actions = ('make_active', 'make_inactive', 'make_featured', 'make_unfeatured')
     fieldsets = (
     (None, {'fields': ('site', 'category', 'name', 'slug', 'sku', 'description', 'short_description', 'date_added',
-            'active', 'featured', 'items_in_stock','total_sold','ordering', 'shipclass')}), (_('Meta Data'), {'fields': ('meta',), 'classes': ('collapse',)}),
+            'active', 'featured', 'items_in_stock','total_sold','ordering', 'rush', 'shipclass')}), (_('Meta Data'), {'fields': ('meta',), 'classes': ('collapse',)}),
             (_('Item Dimensions'), {'fields': (('length', 'length_units','width','width_units','height','height_units'),('weight','weight_units')), 'classes': ('collapse',)}),
             (_('Tax'), {'fields':('taxable', 'taxClass'), 'classes': ('collapse',)}),
             (_('Related Products'), {'fields':('related_items','also_purchased'),'classes':('collapse',)}), )
