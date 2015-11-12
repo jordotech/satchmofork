@@ -710,6 +710,38 @@ class Order(models.Model):
     def __unicode__(self):
         return "Order #%s: %s" % (self.id, self.contact.full_name)
 
+    def _rush(self):
+        rush = False
+        rush_cats = ["rush","apparel","accessories"]
+        for item in self.orderitem_set.all():
+            product = item.product
+            rush = False
+            c = None
+            try:
+                product = product.productvariation.parent.product
+            except Exception,e:
+                pass
+            try:
+                c = product.configurableproduct
+            except Exception,e:
+                try:
+                    c = product.holster.configurable
+                except:
+                    pass
+            if c:
+                product = c.product
+            for category in product.category.all():
+                for cat in rush_cats:
+                    if cat in category.name.lower():
+                        rush = True
+                        break
+                if rush:
+                    break
+            if not rush:
+                return False
+        return rush
+    rush = property(_rush)
+    
     def add_status(self, status=None, notes=""):
         orderstatus = OrderStatus()
         if not status:
