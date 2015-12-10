@@ -741,7 +741,7 @@ class Order(models.Model):
                 return False
         return rush
     rush = property(_rush)
-    
+
     def add_status(self, status=None, notes=""):
         orderstatus = OrderStatus()
         if not status:

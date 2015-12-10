@@ -740,6 +740,7 @@ class Option(models.Model):
     option_group = models.ForeignKey(OptionGroup)
     name = models.CharField(_("Display value"), max_length=50, )
     value = models.CharField(_("Stored value"), max_length=50)
+    slug = models.CharField(_("URL Slug"), max_length=255, null=True, blank=True)
     price_change = CurrencyField(_("Price Change"), null=True, blank=True,
         max_digits=14, decimal_places=6,
         help_text=_("This is the price differential for this option."))
